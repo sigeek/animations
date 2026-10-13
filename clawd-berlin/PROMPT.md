@@ -1,13 +1,13 @@
-# Claw exploring Berlin — directed motion prompt
+# Clawd exploring Berlin — directed motion prompt
 
 GOAL
-A 30-second, side-view 2D story: Claw (the pixel Claude mascot) tours Berlin by public transport. The viewer should feel a cheerful, compact tourist day and recognize every landmark at phone size.
+A 30-second, side-view 2D story: Clawd (the pixel Claude mascot) tours Berlin by public transport. The viewer should feel a cheerful, compact tourist day and recognize every landmark at phone size.
 
 OUTPUT
-One Remotion project, 2D only (React + SVG), composition "ClawBerlin", 1080 x 1080, 30 fps, 900 frames (0–899). Each shot is its own component inside a <Series>, so any shot can be re-rendered alone. No sound. Every graphic is drawn in code: no image files, no external assets.
+One Remotion project, 2D only (React + SVG), composition "ClawdBerlin", 1080 x 1080, 30 fps, 900 frames (0–899). Each shot is its own component inside a <Series>, so any shot can be re-rendered alone. No sound. Every graphic is drawn in code: no image files, no external assets.
 
 CHARACTER (fixed, never change proportions)
-Claw is pixel art on a grid where 1 unit = 12 px.
+Clawd is pixel art on a grid where 1 unit = 12 px.
 - Body 14 x 10 units, color #D97757.
 - One arm on each side, 3 x 2 units, at mid-height.
 - Four legs under the body, each 2 x 3 units.
@@ -25,7 +25,7 @@ STYLE
 - Global palette (max 2 accent colors added per scene):
   - paper #F4EFE6
   - ink #1F1E1D
-  - Claw #D97757
+  - Clawd #D97757
   - stone #C9C1B4
   - shadow #8F877B
   - sky #DCE6EA
@@ -42,7 +42,7 @@ SHOTS (frame ranges inclusive)
 
 1. Title card, 0–44 (1.5 s)
    - A sheet of paper (#F4EFE6, 860 x 860, slightly rotated -2°) on a dark desk (#2B2A28).
-   - On it, in ink: "Claw exploring Berlin" plus a small Claw in stand pose.
+   - On it, in ink: "Clawd exploring Berlin" plus a small Clawd in stand pose.
    - Hero move: the title is fully readable by frame 6 and holds still.
 
 2. Crumple, 45–62 (0.6 s)
@@ -61,49 +61,49 @@ SHOTS (frame ranges inclusive)
    - The S3 train enters from the right and decelerates to a stop at frame 125 (ease-out-cubic), under a simple arched station roof.
    - Station sign "Alexanderplatz" holds from 125 to 245.
    - Doors open at 130.
-   - Claw hops out, 136–150: 3-frame anticipation crouch, an arc to the platform, then landing squash scaleY 0.85 / scaleX 1.12 for 3 frames.
+   - Clawd hops out, 136–150: 3-frame anticipation crouch, an arc to the platform, then landing squash scaleY 0.85 / scaleX 1.12 for 3 frames.
    - Camera tilts up, 160–215 (ease-in-out-quart), to reveal the Fernsehturm: thin shaft, sphere, red-and-white antenna.
-   - Claw is in look-up pose from 165 to 245.
+   - Clawd is in look-up pose from 165 to 245.
 
 5. Walk to Museumsinsel, 246–335 (3 s)
-   - Claw stays at x = 40% of the frame in a walk cycle: step A/B swap every 6 frames, with the body 1 unit higher on each swap.
+   - Clawd stays at x = 40% of the frame in a walk cycle: step A/B swap every 6 frames, with the body 1 unit higher on each swap.
    - Background layers scroll left at parallax speeds 1.0 (street), 0.5 (buildings), 0.2 (skyline).
    - Frame 290: a hard cut to the same walk with a signpost "→ Museumsinsel" passing by.
-   - The Spree water strip and Berlin Cathedral dome slide in, and Claw stops at frame 320 (ease-out).
+   - The Spree water strip and Berlin Cathedral dome slide in, and Clawd stops at frame 320 (ease-out).
 
 6. U5 to Brandenburger Tor, 336–485 (5 s)
-   - 336–410: side view inside a dark tunnel. Claw sits in a lit yellow U5 window, and tunnel lights pass at constant speed.
-   - Hard cut at 411: Claw rises out of an U-Bahn stair entrance (sign "Brandenburger Tor") in front of the gate.
+   - 336–410: side view inside a dark tunnel. Clawd sits in a lit yellow U5 window, and tunnel lights pass at constant speed.
+   - Hard cut at 411: Clawd rises out of an U-Bahn stair entrance (sign "Brandenburger Tor") in front of the gate.
    - The gate is 6 columns with the Quadriga silhouette on top.
-   - Claw is fully up by frame 430 (ease-out-cubic), then stands and looks up.
+   - Clawd is fully up by frame 430 (ease-out-cubic), then stands and looks up.
 
 7. Walk to the Bundestag, 486–575 (3 s)
    - Same walk cycle and parallax as shot 5.
-   - The Reichstag building with its glass dome slides in, and Claw stops at frame 555.
+   - The Reichstag building with its glass dome slides in, and Clawd stops at frame 555.
    - Bus stop sign "Bundestag" is visible from 555.
 
 8. Bus 100 to Ku'damm, 576–725 (5 s)
-   - The double-decker stops at 590. Claw hops on with a 2-frame anticipation and is seated at the upper-deck front window by 605.
+   - The double-decker stops at 590. Clawd hops on with a 2-frame anticipation and is seated at the upper-deck front window by 605.
    - The bus drives left past Tiergarten trees and the Siegessäule, which passes the window at 630–660.
    - The bus decelerates to stop at frame 690 in front of the Kaiser-Wilhelm-Gedächtniskirche: broken tower silhouette plus shop facades.
    - Sign "Kurfürstendamm" holds from 690 to 725.
 
 9. Bike to Tempelhof, 726–845 (4 s)
-   - Claw is seated rigid on a simple bike: two wheel circles with spokes, a triangle frame, no pedaling legs.
+   - Clawd is seated rigid on a simple bike: two wheel circles with spokes, a triangle frame, no pedaling legs.
    - The wheels rotate linearly at constant speed.
-   - Claw bobs 1 unit on two bumps, at 760 and 800.
+   - Clawd bobs 1 unit on two bumps, at 760 and 800.
    - Street layers scroll at the same parallax speeds.
    - From 790 the city drops away and the open Tempelhofer Feld slides in: flat grass, a runway line, the long curved airport building small in the distance.
 
 10. Final hold, 846–899 (1.8 s)
-    - Claw brakes to a stop at 850 (ease-out-quint), hops off, and stands on the field in stand pose.
+    - Clawd brakes to a stop at 850 (ease-out-quint), hops off, and stands on the field in stand pose.
     - Two kites hold still in the sky.
     - Nothing else moves except a 2% slow push-in.
 
 MOTION RULES
 - Entrances use ease-out; exits use ease-in and are 40–50% shorter. Vehicles arrive on ease-out-cubic and leave on ease-in-cubic.
 - Camera moves use ease-in-out-quart only. Linear is only for wheel rotation, tunnel lights and constant scrolling.
-- Springs use damping ratio 0.5 for Claw's hops and landings, 0.8 for everything else. Position and scale may overshoot; opacity and color never do.
+- Springs use damping ratio 0.5 for Clawd's hops and landings, 0.8 for everything else. Position and scale may overshoot; opacity and color never do.
 - One hero move per shot. Secondary elements move 50–70% as far and start 100–200 ms (3–6 frames) after the hero.
 - Text never moves while it is readable. Every sign holds at least 1.1 s.
 - Cuts between shots are hard cuts, except shots 2→3 (the paper transition).
@@ -119,8 +119,8 @@ RENDER CONTRACT
 - A debug overlay (frame number top-left, shot name top-right) is behind a prop, on while iterating, off for the final render.
 
 PHASES
-- Phase 1: build the tokens file, Claw (all poses), the walk cycle, and shots 1–4. Render stills at frames 0, 44, 54, 63, 72, 81, 125, 143, 190, 245 plus a 12-frame contact sheet of 0–245. Describe what you see, then stop and wait for my notes.
+- Phase 1: build the tokens file, Clawd (all poses), the walk cycle, and shots 1–4. Render stills at frames 0, 44, 54, 63, 72, 81, 125, 143, 190, 245 plus a 12-frame contact sheet of 0–245. Describe what you see, then stop and wait for my notes.
 - Phase 2: after my approval, build shots 5–10 reusing the same components.
 
 QA
-Before any full render, render stills and a contact sheet and tell me what you see before changing anything. When fixing, name the frame numbers you changed. Final render: `npx remotion render ClawBerlin out/claw-berlin.mp4` with the debug overlay off.
+Before any full render, render stills and a contact sheet and tell me what you see before changing anything. When fixing, name the frame numbers you changed. Final render: `npx remotion render ClawdBerlin out/clawd-berlin.mp4` with the debug overlay off.

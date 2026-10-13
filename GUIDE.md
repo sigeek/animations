@@ -1,4 +1,4 @@
-# Claw exploring Berlin — article summary & how-to guide
+# Clawd exploring Berlin — article summary & how-to guide
 
 ## 1. Article summary
 
@@ -13,7 +13,7 @@ The author argues that viral "one prompt" animations hide the real work, which i
 
 The key experiment gave the same subject to a vague 3-adjective prompt and a detailed 448-word prompt. The vague prompt produced every default "AI look": dark space, glow, particles, spinning objects. The directed prompt worked because it replaced adjectives with numbers: materials, lights, camera angles, beats and spring values. It also banned the defaults by name.
 
-**Takeaways for the Claw project**
+**Takeaways for the Clawd project**
 - **Engine:** Remotion for multi-scene videos, three.js for 3D, plain HTML for short single loops.
 - **Prompt template:** GOAL, TIME, SHOTS (each with a frame range, one hero move and a handoff), OUTPUT, an explicit ban list and a QA line.
 - **Character lock:** state fixed proportions so the mascot stays recognizable. The article's voxel Claude mascot uses a 14×10 body, 3×2 arms, 2×3 legs and 2×3 eyes.
@@ -34,26 +34,26 @@ The key experiment gave the same subject to a vague 3-adjective prompt and a det
 - Claude Code with Opus 5.5 selected, at medium effort.
 - Node.js, which Remotion requires.
 - `PROMPT.md`, the directed prompt from this chat.
-- A screenshot of Claw to use as the visual reference.
+- A screenshot of Clawd to use as the visual reference.
 
 ### Step 1: Set up the project
 ```bash
-npx create-video@latest claw-berlin   # choose a blank/empty template
-cd claw-berlin
+npx create-video@latest clawd-berlin   # choose a blank/empty template
+cd clawd-berlin
 npm install
 ```
-Then install Remotion's official Agent Skills for Claude Code (see the Remotion docs). Copy `PROMPT.md` and your Claw screenshot into the project folder.
+Then install Remotion's official Agent Skills for Claude Code (see the Remotion docs). Copy `PROMPT.md` and your Clawd screenshot into the project folder.
 
 ### Step 2: Phase 1 (style, character, opening)
 Start Claude Code in the project folder and send:
 
-> Read PROMPT.md and use claw-reference.png as the Claw reference. Do Phase 1 only. Render the listed stills and a contact sheet, describe what you see, then stop.
+> Read PROMPT.md and use clawd-reference.png as the Clawd reference. Do Phase 1 only. Render the listed stills and a contact sheet, describe what you see, then stop.
 
 To watch it live, run `npm run dev` to open Remotion Studio and scrub the timeline.
 
 ### Step 3: Review loop
 Look at the stills and contact sheet, then send **one or two notes per round**. Each note should name frames and give numbers. Examples:
-- "Claw's landing at frame 143 lands 2 frames late; move the touchdown to 141."
+- "Clawd's landing at frame 143 lands 2 frames late; move the touchdown to 141."
 - "The crumple polygon at frame 54 looks too round; use sharper vertices with more noise."
 - "Alexanderplatz sign is unreadable at phone size; make it 20% larger."
 - "Frame 190: the Fernsehturm sphere is cut off; end the tilt 40 px higher."
@@ -69,7 +69,7 @@ When a note comes to you as a feeling, translate it into numbers before sending:
 
 To check a single frame yourself:
 ```bash
-npx remotion still ClawBerlin out/f143.png --frame=143
+npx remotion still ClawdBerlin out/f143.png --frame=143
 ```
 
 ### Step 4: Phase 2 (remaining shots)
@@ -82,7 +82,7 @@ Repeat the review loop for each shot.
 ### Step 5: Final render and export
 Ask Claude to switch the debug overlay off, then run:
 ```bash
-npx remotion render ClawBerlin out/claw-berlin.mp4
+npx remotion render ClawdBerlin out/clawd-berlin.mp4
 ```
 The result is a 1080×1080 MP4, 30 s, 30 fps. Post it on X as a video, not a GIF: GIFs cap out at about 14.5 s.
 
@@ -93,7 +93,7 @@ The result is a 1080×1080 MP4, 30 s, 30 fps. Post it on X as a video, not a GIF
 | Shapes jitter between renders | Unseeded randomness | "Replace all Math.random with random(seed) using fixed seeds." |
 | A frame looks different each render | Timing from the clock | "Drive every value from useCurrentFrame only; remove all timers." |
 | Font pops in on the first frames | Font not loaded | "Load the font with delayRender before frame 0." |
-| Claw changes shape between shots | Proportions drift | "Use the single Claw component everywhere; proportions are fixed per CHARACTER." |
+| Clawd changes shape between shots | Proportions drift | "Use the single Clawd component everywhere; proportions are fixed per CHARACTER." |
 | A sign flashes by unread | Hold too short | "Hold every sign at least 1.1 s with no movement." |
 | A fix doesn't stick | Unclear diagnosis | "Render the frames just before and after the problem and describe the difference before changing code." |
 
