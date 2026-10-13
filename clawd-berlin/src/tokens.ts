@@ -34,7 +34,7 @@ export const ACCENTS = {
   yellowDark: "#D9A21B", // U5 doors and frames, bus wheel arches
   glass: "#A9C6D9", // shot 7: Reichstag dome
   grass: "#A3C27A", // shots 9–10: Tempelhofer Feld
-  kite: "#C8463B", // shot 10
+  signalRed: "#C8463B", // shot 10: radar tower stripes
 } as const;
 
 export const FONT = { weight: 700 } as const;
@@ -808,11 +808,16 @@ export const BIKE = {
     },
     radarDish: { x: 1010, h: 150, mastW: 6, dishW: 48, dishH: 16 },
     farTower: { x: 830, scale: 0.3 },
-    kites: [
-      { x: 300, y: 320, size: 72, color: "kite" },
-      { x: 780, y: 230, size: 56, color: "paper" },
-    ],
-    kiteTail: 90,
+    // The Luftbrückendenkmal (Berlin Airlift memorial) on the left horizon.
+    memorial: {
+      x: 96,
+      prongs: 3,
+      gap: 26,
+      w: 14,
+      h: 170,
+      hook: 54,
+      base: { w: 110, h: 14 },
+    },
   },
   hopOff: {
     crouch: { from: 853, to: 855, scaleX: 1.08, scaleY: 0.9 },
@@ -829,13 +834,18 @@ export const BIKE = {
 // global frame (morning at Alexanderplatz → dusk at Tempelhof). The paper
 // shots (before 81) are indoors and untinted.
 export const DAY = {
+  // Clean colors only: every neighbouring pair mixes without passing
+  // through grey. Blue deepens until the Ku'damm; the switch to gold happens
+  // during the push into the bike ride (726–740).
   keys: [
-    { frame: 81, sky: "#DCE6EA", tint: "#FFE7B0", tintOpacity: 0 }, // morning
-    { frame: 185, sky: "#D2E5F0", tint: "#FFE7B0", tintOpacity: 0 }, // late morning
-    { frame: 411, sky: "#BFDDF2", tint: "#FFFFFF", tintOpacity: 0 }, // midday
-    { frame: 576, sky: "#CDDDE4", tint: "#F2C27A", tintOpacity: 0.06 }, // afternoon
-    { frame: 726, sky: "#EBD8B6", tint: "#F0A050", tintOpacity: 0.12 }, // golden hour
-    { frame: 800, sky: "#E3BC98", tint: "#E07A40", tintOpacity: 0.14 },
+    { frame: 81, sky: "#DCE8EE", tint: "#FFE7B0", tintOpacity: 0 }, // morning
+    { frame: 185, sky: "#CFE6F3", tint: "#FFE7B0", tintOpacity: 0 }, // late morning
+    { frame: 411, sky: "#BADCF4", tint: "#FFFFFF", tintOpacity: 0 }, // midday
+    { frame: 576, sky: "#B4D5EF", tint: "#FFFFFF", tintOpacity: 0 }, // afternoon
+    { frame: 725, sky: "#A9CBEA", tint: "#FFFFFF", tintOpacity: 0 }, // late afternoon, Ku'damm
+    { frame: 740, sky: "#F6D9A2", tint: "#F0A050", tintOpacity: 0.08 }, // golden hour
+    { frame: 790, sky: "#F5BE8A", tint: "#E88A48", tintOpacity: 0.12 }, // apricot
+    { frame: 825, sky: "#CFA6B8", tint: "#B06A7A", tintOpacity: 0.14 }, // rosy mauve
     { frame: 846, sky: "#8E9DC0", tint: "#2E3150", tintOpacity: 0.18 }, // dusk
   ],
   // Flat sunset bands from the horizon up, no gradient.
@@ -970,6 +980,4 @@ export const SHAPES = {
   ],
   reichstagRibW: 4,
   bike: { seatBack: 0.18, headBack: 0.1, headDrop: 0.9, stemRise: 0.25 }, // shares of wheelBase / seatH
-  kiteTail: { stroke: 3, wiggle: [-14, 10, -6] },
-  kiteAspect: 0.7, // half-width / half-height of the kite diamond
 } as const;

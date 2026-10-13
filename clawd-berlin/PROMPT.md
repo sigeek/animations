@@ -109,12 +109,12 @@ SHOTS (frame ranges inclusive)
 10. Final hold at sunset, 846–899 (1.8 s)
    - Tempelhofer Feld at dusk, after the reference video: the long low terminal with a row of warm arcade lamps (switching on 815–840) and red obstruction lights, the red-and-white striped radar tower with its ball and red light, a radar dish on a mast, the Fernsehturm small on the horizon.
     - Clawd brakes to a stop at 850 (ease-out-quint), hops off, and stands on the field in stand pose.
-    - Two kites hold still in the sky.
+    - The Luftbrückendenkmal ("Hungerharke", three concrete prongs bending west for the Berlin Airlift's air corridors) stands on the left horizon.
     - Nothing else moves except a 2% slow push-in.
 
 MOTION RULES
 - Entrances use ease-out; exits use ease-in and are 40–50% shorter. Vehicles arrive on ease-out-cubic and leave on ease-in-cubic.
-- Camera moves use ease-in-out-quart only. Linear is only for wheel rotation, tunnel lights and constant scrolling.
+- Camera moves use ease-in-out-quart only. Linear is only for wheel rotation, tunnel lights, constant scrolling.
 - Springs use damping ratio 0.5 for Clawd's hops and landings, 0.8 for everything else. Position and scale may overshoot; opacity and color never do.
 - One hero move per shot. Secondary elements move 50–70% as far and start 100–200 ms (3–6 frames) after the hero.
 - Text never moves while it is readable. Every sign holds at least 1.1 s.

@@ -1,6 +1,6 @@
 import React from "react";
 import { ShadedCircle, shadeOf } from "../../shading";
-import { ACCENTS, BIKE, COLORS, DAY, SHAPES, VIDEO } from "../../tokens";
+import { ACCENTS, BIKE, COLORS, DAY, VIDEO } from "../../tokens";
 import { lampColorAt } from "../../daylight";
 import { DistantFernsehturm } from "../Fernsehturm";
 import { repeatStarts } from "../street/repeat";
@@ -122,7 +122,7 @@ const RadarTower: React.FC = () => {
           y={stripeTop + i * r.stripeH}
           width={2 * halfAt(stripeTop) + 2 * r.leg}
           height={r.stripeH}
-          fill={i % 2 === 0 ? ACCENTS.kite : COLORS.paper}
+          fill={i % 2 === 0 ? ACCENTS.signalRed : COLORS.paper}
         />
       ))}
       <ShadedCircle
@@ -165,8 +165,44 @@ const RadarDish: React.FC = () => {
   );
 };
 
+// Luftbrückendenkmal ("Hungerharke"): three concrete prongs bending west,
+// one for each air corridor of the 1948–49 Airlift.
+const Hungerharke: React.FC = () => {
+  const m = f.memorial;
+  const base = f.top - m.base.h;
+  const left = m.x - ((m.prongs - 1) * m.gap) / 2;
+  return (
+    <g>
+      <rect
+        x={m.x - m.base.w / 2}
+        y={base}
+        width={m.base.w}
+        height={m.base.h}
+        fill={COLORS.stone}
+      />
+      {Array.from({ length: m.prongs }, (_, i) => {
+        const x = left + i * m.gap;
+        const top = base - m.h;
+        const d = `M ${x - m.w / 2} ${base} L ${x - m.w / 2} ${top + m.hook / 2} Q ${x - m.w / 2} ${top} ${x - m.hook} ${top} L ${x - m.hook} ${top + m.w} Q ${x + m.w / 2} ${top + m.w} ${x + m.w / 2} ${top + m.hook / 2} L ${x + m.w / 2} ${base} Z`;
+        return (
+          <g key={i}>
+            <path d={d} fill={COLORS.stone} />
+            <rect
+              x={x}
+              y={top + m.hook / 2}
+              width={m.w / 2}
+              height={base - top - m.hook / 2}
+              fill={shadeOf(COLORS.stone)}
+            />
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
 // Tempelhofer Feld at sunset: tree line, the Fernsehturm far off, terminal,
-// radar tower and dish, grass with a dashed runway, two kites holding still.
+// radar tower and dish, the Airlift memorial, grass with a dashed runway.
 export const TempelhofField: React.FC<{
   frame: number;
   runwayOffset: number;
@@ -197,28 +233,6 @@ export const TempelhofField: React.FC<{
         fill={COLORS.paper}
       />
     ))}
-    {f.kites.map((k) => (
-      <g key={k.x}>
-        <polyline
-          points={[0, ...SHAPES.kiteTail.wiggle]
-            .map(
-              (dx, i) =>
-                `${k.x + dx},${k.y + k.size + (i * f.kiteTail) / SHAPES.kiteTail.wiggle.length}`,
-            )
-            .join(" ")}
-          fill="none"
-          stroke={COLORS.ink}
-          strokeWidth={SHAPES.kiteTail.stroke}
-        />
-        <polygon
-          points={`${k.x},${k.y - k.size} ${k.x + k.size * SHAPES.kiteAspect},${k.y} ${k.x},${k.y + k.size} ${k.x - k.size * SHAPES.kiteAspect},${k.y}`}
-          fill={k.color === "kite" ? ACCENTS.kite : COLORS.paper}
-        />
-        <polygon
-          points={`${k.x},${k.y - k.size} ${k.x + k.size * SHAPES.kiteAspect},${k.y} ${k.x},${k.y + k.size}`}
-          fill={shadeOf(k.color === "kite" ? ACCENTS.kite : COLORS.paper)}
-        />
-      </g>
-    ))}
+    <Hungerharke />
   </g>
 );
