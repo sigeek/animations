@@ -1,0 +1,126 @@
+# Claw exploring Berlin — directed motion prompt
+
+GOAL
+A 30-second, side-view 2D story: Claw (the pixel Claude mascot) tours Berlin by public transport. The viewer should feel a cheerful, compact tourist day and recognize every landmark at phone size.
+
+OUTPUT
+One Remotion project, 2D only (React + SVG), composition "ClawBerlin", 1080 x 1080, 30 fps, 900 frames (0–899). Each shot is its own component inside a <Series>, so any shot can be re-rendered alone. No sound. Every graphic is drawn in code: no image files, no external assets.
+
+CHARACTER (fixed, never change proportions)
+Claw is pixel art on a grid where 1 unit = 12 px.
+- Body 14 x 10 units, color #D97757.
+- One arm on each side, 3 x 2 units, at mid-height.
+- Four legs under the body, each 2 x 3 units.
+- Two eyes, 2 x 3 units each, color #1F1E1D.
+- No mouth, no outline, no shading, no accessories.
+I attached a reference image: match it exactly.
+Poses (the only ones allowed):
+- stand
+- step A / step B (alternating legs)
+- sit (in a vehicle or on the bike: legs hidden)
+- look-up (eyes shifted up 1 unit)
+
+STYLE
+- Flat 2D shapes, no outlines, hard edges.
+- Global palette (max 2 accent colors added per scene):
+  - paper #F4EFE6
+  - ink #1F1E1D
+  - Claw #D97757
+  - stone #C9C1B4
+  - shadow #8F877B
+  - sky #DCE6EA
+- Landmarks are simplified silhouettes with 3–5 shapes each, readable in 0.5 s.
+- Transit liveries:
+  - S-Bahn train (S3): dark red lower body, ochre upper band.
+  - U-Bahn train (U5): all yellow.
+  - Bus 100: yellow double-decker.
+- Line badges are plain rounded rectangles with "S3", "U5", "100" in white bold sans.
+- No BVG or DB logos, wordmarks or symbols anywhere.
+- Font: one bold geometric sans for all text, loaded before the first frame renders.
+
+SHOTS (frame ranges inclusive)
+
+1. Title card, 0–44 (1.5 s)
+   - A sheet of paper (#F4EFE6, 860 x 860, slightly rotated -2°) on a dark desk (#2B2A28).
+   - On it, in ink: "Claw exploring Berlin" plus a small Claw in stand pose.
+   - Hero move: the title is fully readable by frame 6 and holds still.
+
+2. Crumple, 45–62 (0.6 s)
+   - The sheet's outline becomes a seeded-noise polygon of 16 vertices and contracts to a ~180 px ball by frame 58 (ease-in-cubic).
+   - It rotates +25° while contracting.
+   - Crease lines (ink at 30% opacity) appear as it shrinks.
+   - Frames 58–62: the ball squashes to scaleY 0.88 / scaleX 1.1 and springs back (damping ratio 0.5).
+
+3. Unfold, 63–80 (0.6 s)
+   - The ball expands to full-bleed 1080 x 1080 (ease-out-quint).
+   - Its polygon vertices relax into a square.
+   - The inside of the polygon is a clip mask showing shot 4's first frame, so the world is printed on the paper.
+   - The crease overlay fades from 30% to 0% by frame 95.
+
+4. S3 arrives at Alexanderplatz, 81–245 (5.5 s)
+   - The S3 train enters from the right and decelerates to a stop at frame 125 (ease-out-cubic), under a simple arched station roof.
+   - Station sign "Alexanderplatz" holds from 125 to 245.
+   - Doors open at 130.
+   - Claw hops out, 136–150: 3-frame anticipation crouch, an arc to the platform, then landing squash scaleY 0.85 / scaleX 1.12 for 3 frames.
+   - Camera tilts up, 160–215 (ease-in-out-quart), to reveal the Fernsehturm: thin shaft, sphere, red-and-white antenna.
+   - Claw is in look-up pose from 165 to 245.
+
+5. Walk to Museumsinsel, 246–335 (3 s)
+   - Claw stays at x = 40% of the frame in a walk cycle: step A/B swap every 6 frames, with the body 1 unit higher on each swap.
+   - Background layers scroll left at parallax speeds 1.0 (street), 0.5 (buildings), 0.2 (skyline).
+   - Frame 290: a hard cut to the same walk with a signpost "→ Museumsinsel" passing by.
+   - The Spree water strip and Berlin Cathedral dome slide in, and Claw stops at frame 320 (ease-out).
+
+6. U5 to Brandenburger Tor, 336–485 (5 s)
+   - 336–410: side view inside a dark tunnel. Claw sits in a lit yellow U5 window, and tunnel lights pass at constant speed.
+   - Hard cut at 411: Claw rises out of an U-Bahn stair entrance (sign "Brandenburger Tor") in front of the gate.
+   - The gate is 6 columns with the Quadriga silhouette on top.
+   - Claw is fully up by frame 430 (ease-out-cubic), then stands and looks up.
+
+7. Walk to the Bundestag, 486–575 (3 s)
+   - Same walk cycle and parallax as shot 5.
+   - The Reichstag building with its glass dome slides in, and Claw stops at frame 555.
+   - Bus stop sign "Bundestag" is visible from 555.
+
+8. Bus 100 to Ku'damm, 576–725 (5 s)
+   - The double-decker stops at 590. Claw hops on with a 2-frame anticipation and is seated at the upper-deck front window by 605.
+   - The bus drives left past Tiergarten trees and the Siegessäule, which passes the window at 630–660.
+   - The bus decelerates to stop at frame 690 in front of the Kaiser-Wilhelm-Gedächtniskirche: broken tower silhouette plus shop facades.
+   - Sign "Kurfürstendamm" holds from 690 to 725.
+
+9. Bike to Tempelhof, 726–845 (4 s)
+   - Claw is seated rigid on a simple bike: two wheel circles with spokes, a triangle frame, no pedaling legs.
+   - The wheels rotate linearly at constant speed.
+   - Claw bobs 1 unit on two bumps, at 760 and 800.
+   - Street layers scroll at the same parallax speeds.
+   - From 790 the city drops away and the open Tempelhofer Feld slides in: flat grass, a runway line, the long curved airport building small in the distance.
+
+10. Final hold, 846–899 (1.8 s)
+    - Claw brakes to a stop at 850 (ease-out-quint), hops off, and stands on the field in stand pose.
+    - Two kites hold still in the sky.
+    - Nothing else moves except a 2% slow push-in.
+
+MOTION RULES
+- Entrances use ease-out; exits use ease-in and are 40–50% shorter. Vehicles arrive on ease-out-cubic and leave on ease-in-cubic.
+- Camera moves use ease-in-out-quart only. Linear is only for wheel rotation, tunnel lights and constant scrolling.
+- Springs use damping ratio 0.5 for Claw's hops and landings, 0.8 for everything else. Position and scale may overshoot; opacity and color never do.
+- One hero move per shot. Secondary elements move 50–70% as far and start 100–200 ms (3–6 frames) after the hero.
+- Text never moves while it is readable. Every sign holds at least 1.1 s.
+- Cuts between shots are hard cuts, except shots 2→3 (the paper transition).
+- Keep all numbers in one tokens file (easings, springs, colors, frame ranges); no inline magic numbers in components.
+
+BANNED
+Gradients of any kind, glow, bloom, lens flares, decorative particles, drop shadows, fade-and-slide-up entrances, everything fading in at once, centered-everything layouts, 3D or perspective effects, photo textures, rain/snow/weather effects, any BVG or DB logo or wordmark, any pose not listed above.
+
+RENDER CONTRACT
+- Every value is a pure function of the frame (useCurrentFrame). No Date, performance.now, setTimeout, setInterval or requestAnimationFrame.
+- No Math.random: use Remotion's random(seed) with fixed seeds.
+- Fonts and any data are loaded before rendering (delayRender / continueRender).
+- A debug overlay (frame number top-left, shot name top-right) is behind a prop, on while iterating, off for the final render.
+
+PHASES
+- Phase 1: build the tokens file, Claw (all poses), the walk cycle, and shots 1–4. Render stills at frames 0, 44, 54, 63, 72, 81, 125, 143, 190, 245 plus a 12-frame contact sheet of 0–245. Describe what you see, then stop and wait for my notes.
+- Phase 2: after my approval, build shots 5–10 reusing the same components.
+
+QA
+Before any full render, render stills and a contact sheet and tell me what you see before changing anything. When fixing, name the frame numbers you changed. Final render: `npx remotion render ClawBerlin out/claw-berlin.mp4` with the debug overlay off.
