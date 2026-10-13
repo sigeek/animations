@@ -26,6 +26,19 @@ echo ">> Remotion agent skills and fonts"
 (cd "$name" && npx --yes skills add remotion-dev/skills --skill '*' --agent claude-code --copy -y >/dev/null)
 (cd "$name" && npx remotion add @remotion/google-fonts >/dev/null)
 
+echo ">> Headless browser"
+# Remotion downloads a 171 MB headless Chrome into each project on its first
+# render, which can stall on a slow network. Reuse one from another project
+# (an APFS clone on macOS: instant, no extra disk space).
+cached=$(ls -d */node_modules/.remotion/chrome-headless-shell 2>/dev/null | grep -v "^$name/" | head -1 || true)
+if [ -n "$cached" ]; then
+  mkdir -p "$name/node_modules/.remotion"
+  cp -cR "$cached" "$name/node_modules/.remotion/" 2>/dev/null || cp -R "$cached" "$name/node_modules/.remotion/"
+  echo "   reused $cached"
+else
+  echo "   none to reuse; the first render will download it"
+fi
+
 echo ">> Kit"
 K=clawd-berlin/src
 T=templates/kit

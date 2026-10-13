@@ -26,6 +26,8 @@ It creates `clawd-paris/` with:
 
 Add `--no-clawd` for an animation without Clawd. Then add a row to [README.md](README.md).
 
+The first render in a project needs Remotion's headless Chrome (171 MB). The script copies it from an existing project. If there is none, the first render downloads it; if that stalls ("server sent no data"), retry on a better connection or copy `node_modules/.remotion/chrome-headless-shell` over from another project.
+
 **Reusing more from Berlin:** copy the file and adapt its tokens. Useful candidates: `daylight.tsx` (sky and tint over time, sunset bands), the street kit (`components/street/`), `PaperSheet` and its mesh (crumple and unfold), `PoleSign`.
 
 ## 3. Write the spec
