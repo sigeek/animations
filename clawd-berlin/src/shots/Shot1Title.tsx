@@ -11,7 +11,12 @@ import { ramp, springAt, useGlobalFrame } from "../motion";
 // crumple can reuse it.
 export const TitleContent: React.FC<{ frame: number }> = ({ frame }) => {
   const reveal = ramp(frame, TITLE.reveal.from, TITLE.reveal.to, EASE.outCubic);
-  const pop = springAt(frame, TITLE.clawdPop.from, SPRING.defaultRatio, TITLE.clawdPop.frames);
+  const pop = springAt(
+    frame,
+    TITLE.clawdPop.from,
+    SPRING.defaultRatio,
+    TITLE.clawdPop.frames,
+  );
   const { text } = TITLE;
   return (
     <>
@@ -33,8 +38,17 @@ export const TitleContent: React.FC<{ frame: number }> = ({ frame }) => {
           <div key={line}>{line}</div>
         ))}
       </div>
-      <svg width={TITLE.paper.size} height={TITLE.paper.size} style={{ position: "absolute", inset: 0 }}>
-        <Clawd x={TITLE.clawd.x} y={TITLE.clawd.feetY} scaleX={pop} scaleY={pop} />
+      <svg
+        width={TITLE.paper.size}
+        height={TITLE.paper.size}
+        style={{ position: "absolute", inset: 0 }}
+      >
+        <Clawd
+          x={TITLE.clawd.x}
+          y={TITLE.clawd.feetY}
+          scaleX={pop}
+          scaleY={pop}
+        />
       </svg>
     </>
   );

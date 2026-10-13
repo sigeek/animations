@@ -21,7 +21,15 @@ export const Shot3Unfold: React.FC = () => {
         contentSize={VIDEO.width}
         contentScale={lerp(CRUMPLE.ballDiameter / VIDEO.width, 1, t)}
         wrinkles={lerp(1, UNFOLD.wrinkleResidual, t)}
-        paperOpacity={1 - ramp(frame, UNFOLD.paperFade.from, UNFOLD.paperFade.to, EASE.inOutQuad)}
+        paperOpacity={
+          1 -
+          ramp(
+            frame,
+            UNFOLD.paperFade.from,
+            UNFOLD.paperFade.to,
+            EASE.inOutQuad,
+          )
+        }
         beneath={<AlexanderplatzWorld frame={SHOTS.alexanderplatz.from} />}
       />
     </AbsoluteFill>

@@ -51,7 +51,10 @@ export const PaperSheet: React.FC<Props> = ({
     <AbsoluteFill
       style={
         squash
-          ? { transformOrigin: `${CENTER.x}px ${squash.originY}px`, scale: `${squash.scaleX} ${squash.scaleY}` }
+          ? {
+              transformOrigin: `${CENTER.x}px ${squash.originY}px`,
+              scale: `${squash.scaleX} ${squash.scaleY}`,
+            }
           : undefined
       }
     >
@@ -62,7 +65,10 @@ export const PaperSheet: React.FC<Props> = ({
             <AbsoluteFill style={{ background: COLORS.paper }} />
             <PaperGrid
               screen={screen}
-              strokeWidth={(GRID.strokeWidth * contentScale * contentSize) / TITLE.paper.size}
+              strokeWidth={
+                (GRID.strokeWidth * contentScale * contentSize) /
+                TITLE.paper.size
+              }
             />
             {children ? contentBox(children) : null}
             <Wrinkles screen={screen} amount={wrinkles} />

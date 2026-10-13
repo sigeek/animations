@@ -10,9 +10,19 @@ import { TitleContent } from "./Shot1Title";
 // a ball by 58 while rotating +25°, then squashes and springs back.
 export const Shot2Crumple: React.FC = () => {
   const frame = useGlobalFrame("crumple");
-  const t = ramp(frame, CRUMPLE.contract.from, CRUMPLE.contract.to, EASE.inCubic);
+  const t = ramp(
+    frame,
+    CRUMPLE.contract.from,
+    CRUMPLE.contract.to,
+    EASE.inCubic,
+  );
   const { squash } = CRUMPLE;
-  const back = springAt(frame, squash.from, SPRING.clawdRatio, squash.to - squash.from + 1);
+  const back = springAt(
+    frame,
+    squash.from,
+    SPRING.clawdRatio,
+    squash.to - squash.from + 1,
+  );
   const squashed = frame >= squash.from;
   return (
     <AbsoluteFill style={{ background: ACCENTS.desk }}>
@@ -28,7 +38,18 @@ export const Shot2Crumple: React.FC = () => {
           originY: CENTER.y + CRUMPLE.ballDiameter / 2,
         }}
       >
-        <div style={{ opacity: 1 - ramp(frame, CRUMPLE.printFade.from, CRUMPLE.printFade.to, EASE.inCubic) }}>
+        <div
+          style={{
+            opacity:
+              1 -
+              ramp(
+                frame,
+                CRUMPLE.printFade.from,
+                CRUMPLE.printFade.to,
+                EASE.inCubic,
+              ),
+          }}
+        >
           <TitleContent frame={frame} />
         </div>
       </PaperSheet>

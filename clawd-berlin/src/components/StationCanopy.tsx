@@ -18,7 +18,13 @@ export const StationCanopy: React.FC = () => {
           fill={COLORS.ink}
         />
       ))}
-      <rect x={0} y={y} width={VIDEO.width} height={thickness} fill={COLORS.ink} />
+      <rect
+        x={0}
+        y={y}
+        width={VIDEO.width}
+        height={thickness}
+        fill={COLORS.ink}
+      />
     </g>
   );
 };

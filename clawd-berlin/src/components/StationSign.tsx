@@ -10,7 +10,14 @@ export const StationSign: React.FC<{ unfold: number }> = ({ unfold }) => {
   return (
     <g>
       {rods.map((rx) => (
-        <rect key={rx} x={rx - rodWidth / 2} y={canopyBottom} width={rodWidth} height={y - canopyBottom} fill={COLORS.ink} />
+        <rect
+          key={rx}
+          x={rx - rodWidth / 2}
+          y={canopyBottom}
+          width={rodWidth}
+          height={y - canopyBottom}
+          fill={COLORS.ink}
+        />
       ))}
       <g transform={`translate(0 ${y}) scale(1 ${unfold}) translate(0 ${-y})`}>
         <rect x={x} y={y} width={w} height={h} fill={COLORS.paper} />

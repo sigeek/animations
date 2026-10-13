@@ -15,7 +15,11 @@ export const ClawdPoses: React.FC = () => {
     { label: "step B", pose: "stepB" },
     { label: "sit", pose: "sit" },
     { label: "look-up", pose: "lookUp" },
-    { label: `walk (${walk.pose})`, pose: walk.pose, liftUnits: walk.liftUnits },
+    {
+      label: `walk (${walk.pose})`,
+      pose: walk.pose,
+      liftUnits: walk.liftUnits,
+    },
   ];
   const { columns, rowFeetY, labelOffsetY, labelFontSize } = POSE_SHEET;
   return (
