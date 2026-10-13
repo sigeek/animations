@@ -1,6 +1,6 @@
 import { EASE, SPRING } from "../tokens";
 import { lerp, ramp, springAt } from "../motion";
-import type { Pt } from "./paperGeometry";
+import type { Pt } from "../motion";
 
 type Squash = { from: number; to: number; scaleX: number; scaleY: number };
 

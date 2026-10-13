@@ -2,7 +2,9 @@ import { random } from "remotion";
 import { CENTER, CRUMPLE, TITLE, VIDEO } from "../tokens";
 import { lerp } from "../motion";
 
-export type Pt = { x: number; y: number };
+import type { Pt } from "../motion";
+
+export type { Pt };
 
 // The sheet is a mesh of CRUMPLE.meshPoints x CRUMPLE.meshPoints points. The
 // edge points, clockwise from the top-left corner, form the outline polygon;

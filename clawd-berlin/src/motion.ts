@@ -1,6 +1,8 @@
 import { interpolate, spring, useCurrentFrame } from "remotion";
 import { SHOTS, SPRING, VIDEO, type ShotKey, type TravelSpec } from "./tokens";
 
+export type Pt = { x: number; y: number };
+
 type EasingFn = (t: number) => number;
 
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
