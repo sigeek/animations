@@ -23,5 +23,5 @@ cd clawd-berlin && npm install && npm run dev
 Final render (debug overlay off):
 
 ```bash
-cd clawd-berlin && npx remotion render ClawdBerlin out/clawd-berlin.mp4
+cd clawd-berlin && npx remotion render ClawdBerlin out/clawd-berlin.mp4 --props='{"debug":false}'
 ```

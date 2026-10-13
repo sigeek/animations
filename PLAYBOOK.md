@@ -74,11 +74,13 @@ Approved changes go back into `PROMPT.md`, and Claude commits after each approve
 
 ## 5. Final render
 
-Set `debug: false` (in Studio's props, or in `Root.tsx` defaultProps), then:
+Render with the debug overlay switched off by a prop, no code change needed:
 
 ```bash
-cd clawd-paris && npx remotion render ClawdParis out/clawd-paris.mp4
+cd clawd-paris && npx remotion render ClawdParis out/clawd-paris.mp4 --props='{"debug":false}'
 ```
+
+Check it with `npx remotion ffprobe out/clawd-paris.mp4` (duration, size, fps) and look at a few frames before posting.
 
 Post it on X as a video, not a GIF: GIFs cap out at about 14.5 s.
 
