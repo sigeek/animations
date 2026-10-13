@@ -41,31 +41,33 @@ STYLE
 SHOTS (frame ranges inclusive)
 
 1. Title card, 0–44 (1.5 s)
-   - A sheet of paper (#F4EFE6, 860 x 860, slightly rotated -2°) on a dark desk (#2B2A28).
+   - A sheet of squared notebook paper (#F4EFE6, 860 x 860, slightly rotated -2°) on a dark desk (#2B2A28): 22 x 22 light-blue grid (#9CBDE6, 2 px), edge to edge. The grid lines bend with the wrinkles through the crumple and unfold.
    - On it, in ink: "Clawd exploring Berlin" plus a small Clawd in stand pose.
    - Hero move: the title is fully readable by frame 6 and holds still.
 
-2. Crumple, 45–62 (0.6 s)
-   - The sheet's outline becomes a seeded-noise polygon of 16 vertices and contracts to a ~180 px ball by frame 58 (ease-in-cubic).
+2. Crumple, 45–60 (0.5 s)
+   - The sheet is a 5 x 5 point mesh: its 16 edge points form a seeded-noise outline that contracts to a ~180 px ball by frame 58 (ease-in-cubic).
+   - The printed title fades off by frame 50, so the ball is plain paper.
    - It rotates +25° while contracting.
-   - Crease lines (ink at 30% opacity) appear as it shrinks.
-   - Frames 58–62: the ball squashes to scaleY 0.88 / scaleX 1.1 and springs back (damping ratio 0.5).
+   - Wrinkles appear as it shrinks: the mesh's 32 triangles are flat facets tinted with ink at seeded opacities up to 14%. No lines, no gradients. Reference look: white crumpled-paper footage (soft facets, near-straight edges with small dents).
+   - Frames 58–60: the ball squashes to scaleY 0.88 / scaleX 1.1 and springs back (damping ratio 0.5).
 
-3. Unfold, 63–80 (0.6 s)
+3. Unfold, 61–80 (0.7 s)
    - The ball expands to full-bleed 1080 x 1080 (ease-out-quint).
    - Its polygon vertices relax into a square.
-   - The inside of the polygon is a clip mask showing shot 4's first frame, so the world is printed on the paper.
-   - The crease overlay fades from 30% to 0% by frame 95.
+   - Shot 4's first frame lies under the paper, inside the outline. The paper (fill, grid, wrinkles) fades off 61–74 (ease-in-out) so the station shows through as the sheet opens; nothing of the paper is left over the landscape by 74.
+   - At 80 the frame matches shot 4's first frame, so the cut at 81 is seamless.
 
-4. S3 arrives at Alexanderplatz, 81–245 (5.5 s)
-   - The S3 train enters from the right and decelerates to a stop at frame 125 (ease-out-cubic), under a simple arched station roof.
-   - Station sign "Alexanderplatz" holds from 125 to 245.
-   - Doors open at 130.
-   - Clawd hops out, 136–150: 3-frame anticipation crouch, an arc to the platform, then landing squash scaleY 0.85 / scaleX 1.12 for 3 frames.
-   - Camera tilts up, 160–215 (ease-in-out-quart), to reveal the Fernsehturm: thin shaft, sphere, red-and-white antenna.
-   - Clawd is in look-up pose from 165 to 245.
+4. S3 arrives at Alexanderplatz, 81–184 (3.5 s)
+   - The S3 train enters from the right and decelerates to a stop at frame 125 (ease-out-cubic), under a flat platform canopy: one dark slab on slim columns, with the station sign hanging from it.
+   - Station sign "Alexanderplatz" holds from 125 to 184.
+   - Doors open at 126, right as the train stops (126–131).
+   - Clawd hops out, 131–145: 3-frame anticipation crouch, an arc to the platform, then landing squash scaleY 0.85 / scaleX 1.12 for 3 frames.
+   - Static camera, framed from the start so the Fernsehturm (thin shaft, sphere, red-and-white antenna) stands above the station and Clawd lands at the bottom edge.
+   - Clawd switches to look-up pose at 138, at the top of the hop, and holds it to 184.
+   - Small excited hop in place right after landing, 151–164: 1-frame crouch, 48 px arc, light landing squash scaleY 0.91 / scaleX 1.07, spring back.
 
-5. Walk to Museumsinsel, 246–335 (3 s)
+5. Walk to Museumsinsel, 185–335 (5 s)
    - Clawd stays at x = 40% of the frame in a walk cycle: step A/B swap every 6 frames, with the body 1 unit higher on each swap.
    - Background layers scroll left at parallax speeds 1.0 (street), 0.5 (buildings), 0.2 (skyline).
    - Frame 290: a hard cut to the same walk with a signpost "→ Museumsinsel" passing by.
@@ -119,7 +121,7 @@ RENDER CONTRACT
 - A debug overlay (frame number top-left, shot name top-right) is behind a prop, on while iterating, off for the final render.
 
 PHASES
-- Phase 1: build the tokens file, Clawd (all poses), the walk cycle, and shots 1–4. Render stills at frames 0, 44, 54, 63, 72, 81, 125, 143, 190, 245 plus a 12-frame contact sheet of 0–245. Describe what you see, then stop and wait for my notes.
+- Phase 1: build the tokens file, Clawd (all poses), the walk cycle, and shots 1–4. Render stills at frames 0, 44, 54, 61, 68, 81, 125, 143, 170, 184 plus a 12-frame contact sheet of 0–184. Describe what you see, then stop and wait for my notes.
 - Phase 2: after my approval, build shots 5–10 reusing the same components.
 
 QA
