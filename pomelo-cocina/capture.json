@@ -1,0 +1,42 @@
+{
+  "device": {
+    "width": 390,
+    "height": 844,
+    "scale": 3,
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
+  },
+  "flows": [
+    {
+      "name": "review",
+      "steps": [
+        { "goto": "https://pomelo-weld.vercel.app/" },
+        { "click": "Reply to a review", "as": "task" },
+        { "wait": 400, "shot": "01-task", "fullPage": false },
+        { "click": "Send to AI intern", "as": "send" },
+        { "waitText": "first try", "wait": 1200, "shot": "02-first-try" },
+        { "click": "Use example answers", "as": "examples" },
+        { "wait": 600, "shot": "03-answers" },
+        { "click": "Send again with these answers", "as": "sendAgain" },
+        { "waitText": "Three answers later", "wait": 1200, "shot": "04-compare" },
+        { "click": "Get your onboarding note", "as": "note" },
+        { "waitText": "Your onboarding note", "wait": 800, "shot": "05-note" }
+      ]
+    },
+    {
+      "name": "instagram",
+      "steps": [
+        { "goto": "https://pomelo-weld.vercel.app/" },
+        { "click": "Instagram post", "as": "task" },
+        { "wait": 400, "shot": "01-task", "fullPage": false },
+        { "click": "Send to AI intern", "as": "send" },
+        { "waitText": "first try", "wait": 1200, "shot": "02-first-try" },
+        { "click": "Use example answers", "as": "examples" },
+        { "wait": 600, "shot": "03-answers" },
+        { "click": "Send again with these answers", "as": "sendAgain" },
+        { "waitText": "answers later", "wait": 1200, "shot": "04-compare" },
+        { "click": "Get your onboarding note", "as": "note" },
+        { "waitText": "Your onboarding note", "wait": 800, "shot": "05-note" }
+      ]
+    }
+  ]
+}

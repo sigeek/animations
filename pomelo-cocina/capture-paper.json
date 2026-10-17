@@ -1,0 +1,15 @@
+{
+  "url": "https://app.paper.design/file/01M54ZAJ8956HCGTXW656RRFF8/p-1-0/1-0",
+  "frame": { "w": 390, "h": 844 },
+  "scale": 3,
+  "screens": [
+    { "name": "01-welcome", "match": "Your café here", "taps": ["Open my café", "Try the demo café"] },
+    { "name": "02-counter", "match": "Today's orders", "taps": ["Who's on shift?", "Spread the word"] },
+    { "name": "03-first-try", "match": "Step 1 of 4", "taps": ["Too generic", "Doesn't sound like us", "Ship it", "Give me a hint"] },
+    { "name": "04-coach", "match": "Pick a hint", "taps": ["Your voice", "Dry Berlin humour", "Local fruit", "Try again"] },
+    { "name": "05-taste-test", "match": "Step 4 of 4", "taps": ["I've checked it", "Serve it: save to Drive"] },
+    { "name": "06-served", "match": "Order served!", "taps": ["Back to the counter"] },
+    { "name": "07-graduation", "match": "GRADUATION DAY", "taps": ["Export my passport"] },
+    { "name": "08-shift", "match": "STAFF BOARD", "taps": ["Re-plan the week"] }
+  ]
+}

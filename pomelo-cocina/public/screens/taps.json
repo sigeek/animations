@@ -1,0 +1,127 @@
+{
+  "frame": {
+    "w": 390,
+    "h": 844
+  },
+  "scale": 3,
+  "taps": {
+    "01-welcome": {
+      "Open my café": {
+        "x": 18,
+        "y": 722,
+        "w": 354,
+        "h": 56
+      },
+      "Try the demo café": {
+        "x": 18,
+        "y": 792,
+        "w": 115,
+        "h": 18
+      }
+    },
+    "02-counter": {
+      "Who's on shift?": {
+        "x": 95,
+        "y": 510.5,
+        "w": 190,
+        "h": 23
+      },
+      "Spread the word": {
+        "x": 95,
+        "y": 698.5,
+        "w": 190,
+        "h": 23
+      }
+    },
+    "03-first-try": {
+      "Too generic": {
+        "x": 14,
+        "y": 714,
+        "w": 112,
+        "h": 34
+      },
+      "Doesn't sound like us": {
+        "x": 134,
+        "y": 714,
+        "w": 174,
+        "h": 34
+      },
+      "Ship it": {
+        "x": 14,
+        "y": 760,
+        "w": 136.765625,
+        "h": 54
+      },
+      "Give me a hint": {
+        "x": 160.765625,
+        "y": 760,
+        "w": 215.234375,
+        "h": 54
+      }
+    },
+    "04-coach": {
+      "Your voice": {
+        "x": 28,
+        "y": 488,
+        "w": 100,
+        "h": 26
+      },
+      "Dry Berlin humour": {
+        "x": 199,
+        "y": 634,
+        "w": 177,
+        "h": 50
+      },
+      "Local fruit": {
+        "x": 116,
+        "y": 708,
+        "w": 93,
+        "h": 28
+      },
+      "Try again": {
+        "x": 206,
+        "y": 760,
+        "w": 170,
+        "h": 54
+      }
+    },
+    "05-taste-test": {
+      "I've checked it": {
+        "x": 64,
+        "y": 596,
+        "w": 200,
+        "h": 18
+      },
+      "Serve it: save to Drive": {
+        "x": 71,
+        "y": 664.5,
+        "w": 240,
+        "h": 21
+      }
+    },
+    "06-served": {
+      "Back to the counter": {
+        "x": 14,
+        "y": 758,
+        "w": 362,
+        "h": 56
+      }
+    },
+    "07-graduation": {
+      "Export my passport": {
+        "x": 14,
+        "y": 718,
+        "w": 362,
+        "h": 54
+      }
+    },
+    "08-shift": {
+      "Re-plan the week": {
+        "x": 14,
+        "y": 760,
+        "w": 362,
+        "h": 54
+      }
+    }
+  }
+}
